@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Notepad</title>
+    <script>
+        function saveAsHtml() {
+            var content = document.getElementById("notepadContent").value;
+            var blob = new Blob([content], { type: "text/html;charset=utf-8" });
+            saveAs(blob, "notepad_content.html");
+        }
+
+        function saveAs(blob, filename) {
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = filename;
+
+            // Append the link to the document
+            document.body.appendChild(link);
+
+            // Trigger the click event to download the file
+            link.click();
+
+            // Remove the link from the document
+            document.body.removeChild(link);
+        }
+    </script>
+</head>
+<body>
+    <div style="margin: 20px;">
+        <h2>Text Notepad</h2>
+        <textarea id="notepadContent" rows="10" cols="50"></textarea>
+        <br><br>
+        <button onclick="saveAsHtml()">Save as HTML</button>
+    </div>
+</body>
+</html>
