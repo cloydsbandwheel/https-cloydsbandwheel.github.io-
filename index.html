@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password === "Wges9404") {
+                window.location.href = "notepad.html";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 100px;">
+        <h2>Password Protected Notepad</h2>
+        <label for="password">Enter Password:</label>
+        <input type="password" id="password" required>
+        <br><br>
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+</body>
+</html>
